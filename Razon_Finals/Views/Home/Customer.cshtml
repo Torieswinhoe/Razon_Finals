@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Customer";
+}
+
+<h2>Customer</h2>
+@{
+    ViewBag.Title = "Customer";
+}
+
+<h2>Customer</h2>
+
+<div>
+    <h1>Product List</h1>
+    <button id="btnloadproducts">Load Products</button>
+    <table id="tblproducts">
+    </table>
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnloadproducts').click(function () {
+            var table = $('#tblproducts');
+            $.ajax({
+                url: 'https://localhost:44311/api/Products/',
+                method: 'Get',
+                headers: {
+                    'Authorization': 'Bearer' + sessionStorage.getItem('')
+},
+                success: function (response) {
+                    table.empty();
+                    table.append('<thead><tr><th>Product Id</th><th>Product Name</th><th>Supplier ID</th>' +
+                        '<th>Category Id</th><th>QuantityPerUnit</th><th>Unit Price</th><th>UnitsInStock</th><th>UnitsInOrder</th><th>ReorderLevel</th><th>Discontinued</th></tr></thead > <tbody>');
+                    $.each(response, function (index, val) {
+                        table.append('<tr><td>' + val.ProductId + '</td><td>' + val.ProductName + '</td>' +
+                            '<td>' + val.SupplierId + '</td><td>' + val.CategoryId + '</td>' +
+                            '<td>' + val.QuantityPerUnit + '</td><td>' + val.UnitPrice + '</td><td>' + val.UnitsInStock + '</td><td>' + val.UnitsOnOrder + '</td><td>' + val.ReorderLevel + '</td><td>' + val.Discontinued + '</td></tr>');
+
+                    });
+                },
+                error: function (error) {
+                    alert(error.responseText);
+                }
+            });
+        });
+    });
+</script>

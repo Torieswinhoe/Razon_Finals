@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6c34902632f4912a0155d83ea238eca" Name="Diagram1">
+        <EntityTypeShape EntityType="itpfinals_dbModel.Category" Width="2" PointX="4" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="itpfinals_dbModel.Customer" Width="1.875" PointX="13.375" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="itpfinals_dbModel.Employee" Width="2.25" PointX="7.875" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="itpfinals_dbModel.Order" Width="1.875" PointX="11.125" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="itpfinals_dbModel.OrderDetail" Width="2" PointX="8.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="itpfinals_dbModel.Product" Width="1.875" PointX="6.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="itpfinals_dbModel.Shipper" Width="1.875" PointX="13.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="itpfinals_dbModel.Supplier" Width="2" PointX="4" PointY="1" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

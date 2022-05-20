@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+@{
+    ViewBag.Title = "AddProducts";
+}
+
+
+<div>
+    <h1>Add Products</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="success">
+                <th colspan="2">
+                    Add New Items
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ProductID</td>
+                <td><input type="text" id="intProductId" placeholder="Product Id" /> </td>
+            </tr>
+            <tr>
+                <td>Product Name</td>
+                <td>
+                    <input type="text" id="txtProductName"
+                           placeholder="Product Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>SupplierId</td>
+                <td>
+                    <input type="text" id="intSupplierId"
+                           placeholder="Supplier Id" />
+                </td>
+            </tr>
+            <tr>
+                <td>CategoryId</td>
+                <td>
+                    <input type="text" id="intCategoryId"
+                           placeholder="Category Id" />
+                </td>
+            </tr>
+            <tr>
+                <td>QuantityPerUnit</td>
+                <td>
+                    <input type="text" id="intQuantityPerUnit"
+                           placeholder="QuantityPerUnit" />
+                </td>
+            </tr>
+            <tr>
+                <td>UnitPrice</td>
+                <td>
+                    <input type="text" id="UnitPrice"
+                           placeholder="UnitPrice" />
+                </td>
+            </tr>
+            <tr>
+                <td>UnitsInStock</td>
+                <td>
+                    <input type="text" id="UnitsInStock"
+                           placeholder="UnitsInStock" />
+                </td>
+            </tr>
+            <tr>
+                <td>UnitsOnOrder</td>
+                <td>
+                    <input type="text" id="UnitsOnOrder"
+                           placeholder="UnitsOnOrder" />
+                </td>
+            </tr>
+            <tr>
+                <td>ReorderLevel</td>
+                <td>
+                    <input type="text" id="ReorderLevel"
+                           placeholder="ReorderLevel" />
+                </td>
+            </tr>
+            <tr>
+                <td>Discontinued</td>
+                <td>
+                    <input type="text" id="Discontinued"
+                           placeholder="Discontinued" />
+                </td>
+            </tr>
+            <tr class="success">
+                <td colspan="2">
+                    <input id="btnAddProducts" class="btn btn-success"
+                           type="button" value="Add Item" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
+
+<table id="tblproducts">
+</table>
+<script type="text/javascript">
+                   $(document).ready(function () {
+                       $('#btnAddProducts').click(function () {
+                           var ProductId = $('#intProduct Id').val();
+                           var ProductName = $('#txtProduct Name').val();
+                           var SupplierId = $('#txtSupplier Id').val();
+                           var CategoryId = $('#txtCategory Id').val();
+                           var QuantiryPerUnit = $('#txtQuantity Per Unit').val();
+                           var UnitPrice = $('#txtUnit Price').val();
+                           var UnitsInStock = $('#txtUnits In Stock').val();
+                           var UnitsInOrder = $('#txtUnits In Order').val();
+                           var ReorderLevel = $('#txtReorder Level').val();
+                           var Discontinued = $('#txtFiscontinued').val();
+                           $.ajax({
+                               url: '/api/Products',
+                               method: 'Post',
+                               data: {
+                                   "ProductId": ProductId,
+                                   "ProductName": ProductName,
+                                   "SupplierId": SupplierId,
+                                   "CategoryId": CategoryId,
+                                   "QuantiryPerUnit": QuantityPerUnit,
+                                   "UnitPrice": UnitPrice,
+                                   "UnitsInStock": UnitsInStock,
+                                   "UnitsInOrder": UnitsInOrder,
+                                   "ReorderLevel": ReorderLevel,
+                                   "Discontinued": Discontinued,
+                               },
+                               success: function () {
+                                   alert("Success");
+                                   $('#txtProduct Id').val('');
+                                   $('#txtProduct Name').val('');
+                                   $('#txtSupplier Id').val('');
+                                   $('#txtCategory Id').val('');
+                                   $('#txtQuantity Per Unit').val('');
+                                   $('#txtUnit Price').val('');
+                                   $('#txtUnits In Stock').val('');
+                                   $('#txtUnits In Order').val('');
+                                   $('#txtReorder Level').val('');
+                                   $('#txtDiscontinued').val('');
+                               },
+                               error: function (error) {
+                                   alert("Error");
+                               }
+                           });
+                       })
+                   });
+
+</script>
